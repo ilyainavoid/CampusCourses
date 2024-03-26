@@ -4,6 +4,7 @@ import {ROUTES as routes} from "./consts/routes.js";
 import HeaderComponent from "../components/Header/Header.jsx";
 import LayoutWithHeader from "../components/LayoutWithHeader/LayoutWithHeader.jsx";
 import RegistrationPage from "../pages/RegistrationPage/RegistrationPage.jsx";
+import AuthorizationPage from "../pages/AuthorizationPage/AuthorizationPage.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -13,5 +14,9 @@ export const router = createBrowserRouter([
     {
         path: routes.registration(),
         element: <RegistrationPage/>
+    },
+    {
+        path: routes.login(),
+        element: <AuthorizationPage/>
     }
 ])
