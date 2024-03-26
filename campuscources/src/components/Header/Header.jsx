@@ -37,9 +37,15 @@ export default function HeaderComponent() {
         {key: 'signin', label: 'Вход', style: {marginLeft: 'auto'}}
     ]
 
-    const isAuth = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    let buttonsForUser = buttonsForUnauthorized;
 
-    const buttonsForUser = buttonsForMixed;
+    switch(role) {
+        case 'Student': buttonsForUser = buttonsForStudent; break;
+        case 'Teacher': buttonsForUser = buttonsForTeacher; break;
+        case 'Mixed': buttonsForUser = buttonsForMixed; break;
+        case 'Guest': buttonsForUser = buttonsForGuest; break;
+    }
 
     const leftButtons = buttonsForUser.slice(0, Math.min(3, buttonsForUser.length));
     const rightButtons = buttonsForMixed.slice(-2);

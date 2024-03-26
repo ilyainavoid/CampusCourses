@@ -5,6 +5,8 @@ import moment from "moment";
 import {Link, useNavigate} from "react-router-dom";
 import {register} from "../../api/register.js";
 import {ROUTES as routes} from "../../utils/consts/routes.js";
+import {getRole} from "../../api/getRole.js";
+import {roleDeterminant} from "../../utils/functions/roleDeterminant.js";
 
 const {Title} = Typography;
 export default function RegistrationPage() {
@@ -37,6 +39,8 @@ export default function RegistrationPage() {
                 'Вы успешно зарегестрировались!');
             localStorage.setItem("token", token);
             console.log(token);
+            let roles = await getRole(token);
+            localStorage.setItem("role", roleDeterminant(roles))
             setTimeout(() => {
                 navigate(routes.root())
             }, 1000);
