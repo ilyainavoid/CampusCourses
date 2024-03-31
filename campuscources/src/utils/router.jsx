@@ -5,6 +5,7 @@ import HeaderComponent from "../components/Header/Header.jsx";
 import LayoutWithHeader from "../components/LayoutWithHeader/LayoutWithHeader.jsx";
 import RegistrationPage from "../pages/RegistrationPage/RegistrationPage.jsx";
 import AuthorizationPage from "../pages/AuthorizationPage/AuthorizationPage.jsx";
+import ProfilePage from "../pages/ProfilePage/ProfilePage.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -18,5 +19,9 @@ export const router = createBrowserRouter([
     {
         path: routes.login(),
         element: <AuthorizationPage/>
+    },
+    {
+        path: routes.profile(),
+        element: <LayoutWithHeader><ProfilePage/></LayoutWithHeader>
     }
 ])
