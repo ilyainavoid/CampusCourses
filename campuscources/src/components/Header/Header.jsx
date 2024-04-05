@@ -77,6 +77,7 @@ export default function HeaderComponent() {
         case 'Student': buttonsForUser = buttonsForStudent; break;
         case 'Teacher': buttonsForUser = buttonsForTeacher; break;
         case 'Mixed': buttonsForUser = buttonsForMixed; break;
+        case 'Admin': buttonsForUser = buttonsForMixed; break;
         case 'Guest': buttonsForUser = buttonsForGuest; break;
     }
 

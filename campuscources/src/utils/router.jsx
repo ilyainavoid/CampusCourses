@@ -6,6 +6,7 @@ import LayoutWithHeader from "../components/LayoutWithHeader/LayoutWithHeader.js
 import RegistrationPage from "../pages/RegistrationPage/RegistrationPage.jsx";
 import AuthorizationPage from "../pages/AuthorizationPage/AuthorizationPage.jsx";
 import ProfilePage from "../pages/ProfilePage/ProfilePage.jsx";
+import CoursesGroupsPage from "../pages/CoursesGroupsPage/CoursesGroupsPage.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -23,5 +24,9 @@ export const router = createBrowserRouter([
     {
         path: routes.profile(),
         element: <LayoutWithHeader><ProfilePage/></LayoutWithHeader>
+    },
+    {
+        path: routes.groups(),
+        element: <LayoutWithHeader><CoursesGroupsPage/></LayoutWithHeader>
     }
 ])
