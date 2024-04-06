@@ -4,6 +4,7 @@ import {PlusOutlined} from "@ant-design/icons";
 import CoursesGroup from "../../components/CoursesGroup/CoursesGroup.jsx";
 import {getGroups} from "../../api/getGroups.js";
 import {createGroup} from "../../api/createGroup.js";
+import {deleteGroup} from "../../api/deleteGroup.js";
 
 export default function CoursesGroupsPage() {
     const [userRole, setUserRole] = useState(localStorage.getItem('role'));
@@ -49,12 +50,26 @@ export default function CoursesGroupsPage() {
         setGroupName('');
     };
 
+    const handleDeleteGroup = async (groupId) => {
+        let response = await deleteGroup(groupId);
+        if (response.status === 200) {
+            notify('success', 'Группа успешно удалена');
+            setGroups(groups.filter(group => group.id !== groupId));
+        } else {
+            notify('error', 'Произошла ошибка!');
+        }
+        setTimeout(() => {
+            setLoading(false);
+            setOpen(false);
+        }, 1000);
+    }
+
     const handleCancel = () => {
         setOpen(false);
     };
 
     const handleGroupCreate = () => {
-        showModal('Создание группы', 'create');
+        showModal();
     }
 
     return (
@@ -67,7 +82,7 @@ export default function CoursesGroupsPage() {
                 </Flex>
                 <Flex vertical>
                     {groups.map((group) => (
-                        <CoursesGroup id={group.id} groupName={group.name} />
+                        <CoursesGroup id={group.id} name={group.name} onDelete={handleDeleteGroup}/>
                     ))}
                 </Flex>
             </Flex>
