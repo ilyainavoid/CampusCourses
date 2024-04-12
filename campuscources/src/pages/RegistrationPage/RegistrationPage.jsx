@@ -28,6 +28,7 @@ export default function RegistrationPage() {
             setLoading(false);
         }, 1000);
         values.birthDate = moment(values.birthDate).toISOString();
+        console.log(values.birthDate)
         values.fullName = `${values.surname} ${values.name} ${values.patronymic}`;
         delete values.name;
         delete values.surname;

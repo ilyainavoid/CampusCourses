@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import {createGroup} from "../../api/createGroup.js";
 import {editGroup} from "../../api/editGroup.js";
 import {deleteGroup} from "../../api/deleteGroup.js";
+import {useNavigate} from "react-router-dom";
 
 export default function CoursesGroup({ id, name, onDelete }) {
     const [userRole, setUserRole] = useState(localStorage.getItem('role'));
@@ -12,6 +13,7 @@ export default function CoursesGroup({ id, name, onDelete }) {
     const [isOpen, setOpen] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
     const [isLoading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setGroupName(name);
@@ -56,8 +58,12 @@ export default function CoursesGroup({ id, name, onDelete }) {
         showModal();
     }
 
+    const handleGroupClick = () => {
+        navigate(`/groups/${id}`, { state: { id: id }});
+    };
+
     return (
-        <Flex className={styles.groupCard}>
+        <Flex className={styles.groupCard} onClick={handleGroupClick}>
             {contextHolder}
             <Row style={{width: '100%'}}>
                 <Col xs={24} sm={12} md={16} lg={18} xl={20}>

@@ -19,6 +19,7 @@ export default function CoursesGroupsPage() {
             let groupsList = await getGroups();
             setGroups(groupsList);
         }
+
         fetchData();
     }, []);
 
@@ -68,6 +69,7 @@ export default function CoursesGroupsPage() {
         setOpen(false);
     };
 
+
     const handleGroupCreate = () => {
         showModal();
     }
@@ -81,7 +83,7 @@ export default function CoursesGroupsPage() {
                     {userRole === 'Admin' && <Button  type="dashed" onClick={handleGroupCreate} style={{marginLeft: '10px', marginTop: '5px'}}><PlusOutlined/> Создать</Button>}
                 </Flex>
                 <Flex vertical>
-                    {groups.map((group) => (
+                    {groups && groups.map((group) => (
                         <CoursesGroup id={group.id} name={group.name} onDelete={handleDeleteGroup}/>
                     ))}
                 </Flex>

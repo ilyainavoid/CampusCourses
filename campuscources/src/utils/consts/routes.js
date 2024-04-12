@@ -3,5 +3,6 @@ export const ROUTES = {
     login: () => '/login',
     registration: () => '/registration',
     profile: () => '/profile',
-    groups: () => '/groups'
+    groups: () => '/groups',
+    groupCourses: () => '/groups/:id'
 }
