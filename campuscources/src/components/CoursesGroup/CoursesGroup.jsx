@@ -74,8 +74,8 @@ export default function CoursesGroup({ id, name, onDelete }) {
                 <Col xs={24} sm={12} md={8} lg={6} xl={4}>
                     {userRole === "Admin" &&
                         <Flex vertical>
-                            <Button type="dashed" onClick={handleGroupUpdate}>Редактировать</Button>
-                            <Button type="dashed" onClick={handleDelete}>Удалить</Button>
+                            <Button type="dashed"  onClick={e => { e.stopPropagation(); handleGroupUpdate(); }}>Редактировать</Button>
+                            <Button type="dashed"  onClick={e => { e.stopPropagation(); handleDelete(); }}>Удалить</Button>
                         </Flex>
                     }
                 </Col>
