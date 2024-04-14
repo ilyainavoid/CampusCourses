@@ -29,7 +29,8 @@ export default function HeaderComponent() {
         profile: routes.profile(),
         signin: routes.login(),
         signup: routes.registration(),
-        coursesGroups: routes.groups()
+        coursesGroups: routes.groups(),
+        myCourses: routes.myCourses()
     }
 
     const buttonsForMixed = [

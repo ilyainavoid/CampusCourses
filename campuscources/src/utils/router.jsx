@@ -8,6 +8,7 @@ import AuthorizationPage from "../pages/AuthorizationPage/AuthorizationPage.jsx"
 import ProfilePage from "../pages/ProfilePage/ProfilePage.jsx";
 import CoursesGroupsPage from "../pages/CoursesGroupsPage/CoursesGroupsPage.jsx";
 import GroupCoursesPage from "../pages/GroupCoursesPage/GroupCoursesPage.jsx";
+import MyCoursesPage from "../pages/MyCoursesPage/MyCoursesPage.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -33,5 +34,9 @@ export const router = createBrowserRouter([
     {
         path: routes.groupCourses(),
         element: <LayoutWithHeader><GroupCoursesPage/></LayoutWithHeader>
+    },
+    {
+        path: routes.myCourses(),
+        element: <LayoutWithHeader><MyCoursesPage/></LayoutWithHeader>
     }
 ])

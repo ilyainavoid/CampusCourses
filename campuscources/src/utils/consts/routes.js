@@ -4,5 +4,6 @@ export const ROUTES = {
     registration: () => '/registration',
     profile: () => '/profile',
     groups: () => '/groups',
-    groupCourses: () => '/groups/:id'
+    groupCourses: () => '/groups/:id',
+    myCourses: () => '/courses/my'
 }
