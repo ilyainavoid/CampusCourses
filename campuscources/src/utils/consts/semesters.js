@@ -1,4 +1,4 @@
-export const seasonTranslations = {
+export const SEMESTERS = {
     "Spring": "весенний",
     "Autumn": "осенний"
 };
