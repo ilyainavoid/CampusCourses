@@ -5,5 +5,6 @@ export const ROUTES = {
     profile: () => '/profile',
     groups: () => '/groups',
     groupCourses: () => '/groups/:id',
-    myCourses: () => '/courses/my'
+    myCourses: () => '/courses/my',
+    teachingCourses: () => '/courses/teaching'
 }

@@ -30,14 +30,15 @@ export default function HeaderComponent() {
         signin: routes.login(),
         signup: routes.registration(),
         coursesGroups: routes.groups(),
-        myCourses: routes.myCourses()
+        myCourses: routes.myCourses(),
+        teachingCourses: routes.teachingCourses()
     }
 
     const buttonsForMixed = [
         {key: 'main', label: 'Главная'},
         {key: 'coursesGroups', label: 'Группы курсов'},
         {key: 'myCourses', label: 'Мои курсы'},
-        {key: 'courcesTaught', label: 'Преподаваемые курсы'},
+        {key: 'teachingCourses', label: 'Преподаваемые курсы'},
         {key: 'profile', label: email, style: {marginLeft: 'auto'}},
         {key: 'logout', label: 'Выход'}
     ]
@@ -45,7 +46,7 @@ export default function HeaderComponent() {
     const buttonsForTeacher = [
         {key: 'main', label: 'Главная'},
         {key: 'coursesGroups', label: 'Группы курсов'},
-        {key: 'courcesTaught', label: 'Преподаваемые курсы'},
+        {key: 'teachingCourses', label: 'Преподаваемые курсы'},
         {key: 'profile', label: email, style: {marginLeft: 'auto'}},
         {key: 'logout', label: 'Выход'}
     ]
