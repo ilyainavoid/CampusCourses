@@ -5,6 +5,7 @@ import CoursesGroup from "../../components/CoursesGroup/CoursesGroup.jsx";
 import {getGroups} from "../../api/getGroups.js";
 import {createGroup} from "../../api/createGroup.js";
 import {deleteGroup} from "../../api/deleteGroup.js";
+import {getRole} from "../../api/getRole.js";
 
 export default function CoursesGroupsPage() {
     const [userRole, setUserRole] = useState(localStorage.getItem('role'));

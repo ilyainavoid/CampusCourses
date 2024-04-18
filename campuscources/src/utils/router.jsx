@@ -10,6 +10,7 @@ import CoursesGroupsPage from "../pages/CoursesGroupsPage/CoursesGroupsPage.jsx"
 import GroupCoursesPage from "../pages/GroupCoursesPage/GroupCoursesPage.jsx";
 import MyCoursesPage from "../pages/MyCoursesPage/MyCoursesPage.jsx";
 import TeachingCoursesPage from "../pages/TeachingCoursesPage/TeachingCoursesPage.jsx";
+import CourseDetailsPage from "../pages/CourseDetailsPage/CourseDetailsPage.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -43,5 +44,9 @@ export const router = createBrowserRouter([
     {
         path: routes.teachingCourses(),
         element: <LayoutWithHeader><TeachingCoursesPage/></LayoutWithHeader>
+    },
+    {
+        path: routes.courseDetails(),
+        element: <LayoutWithHeader><CourseDetailsPage/></LayoutWithHeader>
     }
 ])

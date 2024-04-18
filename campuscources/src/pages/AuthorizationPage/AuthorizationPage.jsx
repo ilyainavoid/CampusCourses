@@ -30,6 +30,7 @@ export default function AuthorizationPage() {
             notify('success',
                 'Вы успешно вошли');
             localStorage.setItem("token", token);
+            localStorage.setItem("email", values.email);
             let roles = await getRole(token);
             localStorage.setItem("role", roleDeterminant(roles));
             setTimeout(() => {

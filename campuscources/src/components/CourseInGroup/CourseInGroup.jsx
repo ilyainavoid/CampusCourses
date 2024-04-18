@@ -5,6 +5,7 @@ import React, {useState} from "react";
 import {setTextLight} from "../../utils/functions/setTextLight.js";
 import {translateSemester} from "../../utils/functions/translateSemester.js";
 import {translateStatus} from "../../utils/functions/translateStatus.js";
+import {useNavigate} from "react-router-dom";
 
 const {Title, Text} = Typography;
 
@@ -15,9 +16,15 @@ export default function CourseInGroup({group}) {
     const [slotsTotal, setSlotsTotal] = useState(group.maximumStudentsCount);
     const [slotsLeft, setSlotsLeft] = useState(group.remainingSlotsCount);
     const [status, setStatus] = useState(group.status);
+    const [id, setId] = useState(group.id)
+    const navigate = useNavigate();
+
+    const handleGroupClick = () => {
+        navigate(`/courses/${id}`, { state: { id: id }});
+    };
 
     return (
-        <Flex className={styles.courseCard}>
+        <Flex className={styles.courseCard} onClick={handleGroupClick}>
             <Row style={{width: '100%'}}>
                 <Col xs={24} sm={12} md={16} lg={18} xl={20}>
                     <Flex vertical>

@@ -10,6 +10,7 @@ import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 import {getUsers} from "../../api/getUsers.js";
 import {createCourse} from "../../api/createCourse.js";
+import {getRole} from "../../api/getRole.js";
 
 const { Title } = Typography;
 
@@ -42,11 +43,10 @@ export default function GroupCoursesPage() {
         fetchData();
     }, []);
 
-    const selectOptions =  users.map(item => ({
+    const selectOptions = (userRole === 'Admin' || userRole === 'Teacher') ? users.map(item => ({
         value: item.id,
         label: item.fullName
-    }))
-
+    })) : [];
     const handleOk = async () => {
         formRef.current.validateFields()
             .then(async values => {
@@ -63,7 +63,8 @@ export default function GroupCoursesPage() {
                 else {
                     notify('success', 'Курс успешно создан!')
                     let groupCourses = await getCourses(groupId);
-                    setCourses(groupCourses)
+                    setCourses(groupCourses);
+
                     setTimeout(() => {
                         setOpen(false);
                         setLoading(false);
@@ -110,7 +111,7 @@ export default function GroupCoursesPage() {
                 </Flex>
             </Flex>
             <Modal
-                title="Создание группы"
+                title="Создание курса"
                 open={isOpen}
                 onOk={handleOk}
                 onCancel={handleCancel}

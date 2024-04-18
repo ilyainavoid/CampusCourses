@@ -39,6 +39,7 @@ export default function RegistrationPage() {
             notify('success',
                 'Вы успешно зарегестрировались!');
             localStorage.setItem("token", token);
+            localStorage.setItem("email", values.email);
             console.log(token);
             let roles = await getRole(token);
             localStorage.setItem("role", roleDeterminant(roles))

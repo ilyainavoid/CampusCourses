@@ -5,14 +5,20 @@ import {ROUTES as routes} from "../../utils/consts/routes.js";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getProfile} from "../../api/getProfile.js";
+import {getRole} from "../../api/getRole.js";
+import {roleDeterminant} from "../../utils/functions/roleDeterminant.js";
 
 export default function HeaderComponent() {
 
     const navigate = useNavigate();
     const [email, setEmail] = useState(null);
+    const [role, setRole] = useState(localStorage.getItem('role'))
 
     useEffect(() => {
         const fetchData = async () => {
+            let userRole = await getRole(localStorage.getItem('token'));
+            localStorage.setItem('role', roleDeterminant(userRole));
+            setRole(roleDeterminant(userRole));
             try {
                 const data = await getProfile(localStorage.getItem('token'));
                 setEmail(data.email);
@@ -72,8 +78,8 @@ export default function HeaderComponent() {
         {key: 'signin', label: 'Вход'}
     ]
 
-    const role = localStorage.getItem('role');
     let buttonsForUser = buttonsForUnauthorized;
+    console.log(role)
 
     switch(role) {
         case 'Student': buttonsForUser = buttonsForStudent; break;
@@ -88,6 +94,7 @@ export default function HeaderComponent() {
         if (e.key === "logout") {
             localStorage.removeItem('token');
             localStorage.removeItem('role');
+            setRole('Unauthorized')
             setTimeout(() => {
                 navigate(routes.root())
             }, 1000);

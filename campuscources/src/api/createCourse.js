@@ -12,7 +12,7 @@ export const createCourse = async (id, data) => {
     }
     catch (error) {
         console.error('An error occurred:', error.response ? error.response.status : error.message);
-        console.log(`Ответ API: ${error}`)
+        console.log(error)
         return null;
     }
 }
