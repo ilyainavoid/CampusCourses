@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {Button, Card, DatePicker, Flex, Form, Input, message, Typography,} from 'antd';
-import styles from '../../../../../otp-lab-ui/src/pages/registration/registration.module.css'
 import moment from "moment";
 import {Link, useNavigate} from "react-router-dom";
 import {register} from "../../api/register.js";
 import {ROUTES as routes} from "../../utils/consts/routes.js";
 import {getRole} from "../../api/getRole.js";
 import {roleDeterminant} from "../../utils/functions/roleDeterminant.js";
+import styles from './registation.module.css'
 
 const {Title} = Typography;
 export default function RegistrationPage() {
