@@ -1,8 +1,47 @@
-# React + Vite
+# Система управления курсами (Campus Courses)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект разработан в рамках курса "Продвинутая frontend разработка"
 
-Currently, two official plugins are available:
+## Установка
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Клонируйте репозиторий: `git clone https://github.com/your-repo.git`
+2. Установите зависимости: `npm install`
+
+### Роли пользователей
+
+1. **Неавторизованный пользователь**: Может просматривать главную страницу и перейти к страницам регистрации и авторизации.
+2. **Студент**: После авторизации может просматривать доступные курсы, свои курсы и их детали.
+3. **Преподаватель**: После авторизации может создавать, редактировать и управлять своими курсами, а также просматривать и управлять студентами.
+4. **Администратор**: Полный доступ ко всем функциям системы, включая управление пользователями, курсами и группами курсов.
+
+## Страницы и функционал
+
+### Регистрация и авторизация
+
+- Адрес регистрации: `http://localhost/registration/`
+- Адрес авторизации: `http://localhost/login/`
+
+### Профиль
+
+- Адрес профиля: `http://localhost/profile`
+- Авторизованный пользователь может отредактировать свое ФИО и дату рождения.
+
+### Группы курсов
+
+- Страница списка групп: `http://localhost/groups/`
+- Для администратора доступен функционал CRUD групп курсов.
+- Для рядового пользователя доступен просмотр списка групп.
+
+### Курсы
+
+- Страница списка курсов для группы: `http://localhost/groups/{id}`
+- Страница "Мои курсы": `http://localhost/courses/my/`
+- Страница "Преподаваемые курсы": `http://localhost/courses/teaching/`
+- Просмотр деталей курса: `http://localhost/courses/{id}`
+
+## Технологии
+
+CMS разработана с использованием следующих технологий:
+
+- Frontend: HTML, CSS, JavaScript, React, ANT Design, Moment.js
+
