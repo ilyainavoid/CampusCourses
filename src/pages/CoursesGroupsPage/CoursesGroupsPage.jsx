@@ -90,7 +90,7 @@ export default function CoursesGroupsPage() {
                 </Flex>
             </Flex>
             <Modal
-                title="Создание группы"
+                title="Введите код"
                 open={isOpen}
                 onOk={handleOk}
                 onCancel={handleCancel}
